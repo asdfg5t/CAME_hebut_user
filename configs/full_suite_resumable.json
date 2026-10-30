@@ -1,0 +1,23 @@
+{
+  "name": "full_came_task_grid_resumable",
+  "max_active_hours": 24,
+  "pretraining_seeds": [42],
+  "evaluation_seeds": [0,1,2,3,4,5,6,7,8,9],
+  "wiki_node_seeds": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
+  "wiki_split_ids": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
+  "training_config": "configs/subset_offline_24h.json",
+  "probe_epochs": 2000,
+  "probe_patience": 100,
+  "lp_epochs": 100,
+  "lp_patience": 10,
+  "inference_batch_size": 32,
+  "products_inference_batch_size": 4,
+  "ablation_variants": ["without_text_vision_loss","without_text_fusion_loss","without_vision_fusion_loss","only_text_vision_loss","only_text_fusion_loss","only_vision_fusion_loss","without_moe","without_dimension_gate","without_modality_gnn"],
+  "notes": [
+    "All ten CAME downstream domains, separate few-shot corpus, ten downstream seeds, Wiki-CS node Cartesian grid 20 splits x 20 initializations, CLIP baselines and all nine Table 3 ablations are queued without per-job time or epoch truncation.",
+    "One pretrained encoder is reused across downstream seeds. The author does not specify enough to establish whether pretraining itself was independently repeated; this is not ten independent pretraining runs.",
+    "Fixed seed-pool sizes, Books/Cloth caps, PPR parameters, optimizer and gradient clipping remain disclosed reconstruction choices.",
+    "24 hours is a CUMULATIVE active runtime cap across restarts; paused downtime is excluded and unfinished jobs remain pending.",
+    "Other baseline methods and paper noise/sensitivity/t-SNE/expert/efficiency analyses are coverage gaps, not reported as completed by this grid."
+  ]
+}

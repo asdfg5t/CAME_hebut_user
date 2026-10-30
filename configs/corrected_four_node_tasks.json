@@ -1,0 +1,24 @@
+{
+  "name": "corrected_four_node_tasks",
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "datasets": ["ele-fashion", "wiki-cs", "ogbn-arxiv", "books-nc"],
+  "graph_policies": {"ele-fashion": "original", "wiki-cs": "bidirected", "ogbn-arxiv": "bidirected", "books-nc": "bidirected"},
+  "evaluation_seeds": [0,1,2,3,4,5,6,7,8,9],
+  "wiki_seeds": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
+  "wiki_splits": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
+  "probe_epochs": 2000,
+  "probe_patience": 100,
+  "validation_cache_mib": 400,
+  "owned_cache_limit_gib": 3,
+  "inference_batches": {"wiki-cs": 32, "ogbn-arxiv": 32, "books-nc": 128},
+  "paper_test_pct": {"ele-fashion": 85.13, "wiki-cs": 78.57, "ogbn-arxiv": 71.66, "books-nc": 83.21},
+  "extra_pretraining_updates": 0,
+  "cumulative_time_limit": null,
+  "notes": [
+    "Preserve all ten Ele-fashion runs and reuse the three validation-locked seed-zero confirmations.",
+    "Freeze the successful graph protocol before new seeds; never select seeds or parameters by test proximity.",
+    "Repeat the frozen downstream protocol; exact author topology and some training details remain unresolved.",
+    "This entry covers four NC tasks only; the other six main tasks, few-shot and ablations are separate.",
+    "No promised score tolerance: report every seed and the complete mean/sample SD."
+  ]
+}

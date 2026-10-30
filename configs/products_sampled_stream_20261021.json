@@ -1,0 +1,60 @@
+{
+  "dataset": "ogbn-products",
+  "nodes": 2449029,
+  "classes": 47,
+  "train_nodes": 196615,
+  "validation_nodes": 39323,
+  "test_nodes": 2213091,
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "width": 1024,
+  "precision": "fp32",
+  "inference": {
+    "fanouts": [15, 15],
+    "batch_size": 128,
+    "sampling_seed": 217013,
+    "sampler": "stateless_splitmix64_keys_Floyd_distinct_CSC_edge_offsets_v1",
+    "replace": false,
+    "self_loops": "exactly_one_per_destination_after_sampling",
+    "sampling_is_declared_approximation": true,
+    "same_batch_replay_required": true,
+    "reuse_old_full_neighbor_prefix": false
+  },
+  "head": {
+    "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "architecture": "ten_independent_linear_heads_packed_for_shared_GEMM",
+    "lr": 0.05,
+    "max_epochs": 2000,
+    "patience": 100,
+    "full_official_train": true,
+    "selection": "each_head_full_official_validation_accuracy"
+  },
+  "input_cache": {
+    "maximum_bytes": 4294967296,
+    "cuda_reserve_bytes": 536870912,
+    "policy": "highest_full_CSC_source_occurrence_counts_ties_node_ID; exact_FP32_hits_and_misses",
+    "precision": "fp32",
+    "selection_uses_labels": false
+  },
+  "budget": {
+    "maximum_active_seconds": 7200,
+    "head_and_setup_reserve_seconds": 1500,
+    "inference_safety_factor": 1.25,
+    "calibration_nodes": 4096,
+    "extra_project_bytes": 134217728,
+    "extra_cache_bytes": 1342177280,
+    "minimum_free_RAM_bytes": 1073741824,
+    "maximum_private_RAM_fraction": 0.8
+  },
+  "acceptance": {
+    "small_graph_full_fanout_author_rtol": 0.00002,
+    "small_graph_full_fanout_author_atol": 0.00002,
+    "prefix_reference_nodes": 16,
+    "minimum_mean_prefix_cosine": 0.95,
+    "test_accuracy_admission_gate": false,
+    "actual_cuda_and_speed_required_before_full_workload": true
+  },
+  "paper_accuracy_pct": 81.84,
+  "author_inference_sampling_confirmed": false,
+  "paper_protocol_equivalence_claimed": false,
+  "source": "https://www.dgl.ai/dgl_docs/en/1.1.x/guide/minibatch-inference.html"
+}

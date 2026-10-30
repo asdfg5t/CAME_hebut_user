@@ -1,0 +1,17 @@
+{
+  "name": "subset_offline_8_rounds",
+  "stage": "paper_reconstruction_with_declared_assumptions",
+  "seed": 42,
+  "datasets": ["ogbn-products", "books-lp", "cloth-copurchase"],
+  "model": {"hidden_dim": 1024, "heads": 4, "layers": 2, "dropout": 0.3, "experts_per_view": 6, "top_k": 2, "temperature": 0.07, "w_tv": 0.5, "w_tf": 0.1, "w_vf": 0.5},
+  "sampling": {"top_k": 128, "alpha": 0.15, "epsilon": 0.0001, "max_pushes": 100000, "seed_batch_size": 32, "direction": "official_directed", "seed_limits": {"ogbn-products": 16384, "books-lp": 16384, "cloth-copurchase": 8192}, "pool_policy": "fixed_uniform_unlabeled_seeds_on_full_train_safe_topology", "ppr_preparation": "strict_offline_neighbor_ids"},
+  "training": {"epochs": 8, "max_steps": null, "lr": 0.0001, "weight_decay": 0.0, "checkpoint_every": 250, "precision": "fp32", "max_grad_norm": 1.0, "gradient_abort_norm": 10000.0},
+  "deviations": [
+    "Paper page 16 Appendix E explicitly uses Products subset pretraining and offline PPR. This corrects the old all-node-per-epoch reconstruction.",
+    "Exact author subset size/selection, PPR alpha/epsilon and mixing are unreleased. Fixed pool sizes here are reconstruction choices; restricting Goodreads-LP/Cloth pools is an additional 24-hour laptop capacity adaptation.",
+    "Eight configured subset rounds, 1280 seed batches per round and 10240 total updates. Full-graph epochs are NOT claimed.",
+    "All selected PPR neighborhoods are prepared before optimization. Induced union topology is still assembled per batch; complete offline edge blocks are not asserted.",
+    "Author model/width/experts/objective/LR/dropout retained; gradient clipping 1.0 and Windows/cu118 remain explicit engineering adaptations.",
+    "No labels select pretraining pools; immutable full raw graphs/features and official downstream test sets remain intact."
+  ]
+}

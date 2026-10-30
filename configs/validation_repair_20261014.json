@@ -1,0 +1,90 @@
+{
+  "stage": "validation_only_repair",
+  "state": "declared_before_new_training",
+  "created_at": "2026-10-14T08:41:52.2663145+08:00",
+  "reason": "WN normalized Adam validation oscillates; Sports training loss decreases while official validation MRR worsens",
+  "protected": [
+    "four_node_430_results",
+    "FB15K237_confirmed_seed0",
+    "all_original_author_files",
+    "existing_pretrained_encoder",
+    "all_historical_runs"
+  ],
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "extra_pretraining_updates": 0,
+  "seed": 0,
+  "test_used_for_selection": false,
+  "minimum_validation_gain_pp": 0.5,
+  "preferred_gap_pp": 2,
+  "score_guaranteed": false,
+  "WN": {
+    "graph_policy": "previous_validation_selected_train_reverse",
+    "classifier": "linear",
+    "l2_candidates": [
+      0.0,
+      0.0001
+    ],
+    "checkpoint_every": 100,
+    "max_iter_per_update": 1,
+    "patience": 100,
+    "history_size": 20,
+    "lr": 0.05,
+    "feature_conditioning": "invertible_train_pairs_only_affine",
+    "max_new_candidate_runs": 2,
+    "max_epochs": 2000,
+    "author_optimizer_confirmed": false,
+    "representation": "head_tail_concatenation",
+    "line_search": null,
+    "optimizer": "fixed_step_LBFGS",
+    "reference_validation_accuracy": 0.7913645352669743
+  },
+  "LP": {
+    "predictor_hidden_width": 1024,
+    "max_new_candidate_runs_per_dataset": 2,
+    "encoder_width": 1024,
+    "graph": "unchanged official directed train-only topology",
+    "upstream_commit": "0769fa670c69a6dc0756a2d7fc697b980e494775",
+    "batch_size": 512,
+    "full_official_validation": true,
+    "author_CAME_head_confirmed": false,
+    "max_epochs": 30,
+    "full_official_test": true,
+    "step_lr_gamma": 0.1,
+    "raw_and_fixed_test_candidates_unchanged": true,
+    "dataset_priority": "sports-copurchase",
+    "one_uniform_train_only_nonedge_per_positive": true,
+    "minimum_validation_gain_pp": 0.5,
+    "lr": 0.0005,
+    "upstream_evidence": "artifacts/audit/lp_upstream_training_evidence_20261014.json",
+    "upstream_repo": "https://github.com/mm-graph-benchmark/mm-graph-benchmark",
+    "patience": 10,
+    "variants": [
+      "existing_two_layer_head_upstream_schedule",
+      "two_hidden_layernorm_head_upstream_schedule"
+    ],
+    "step_lr_size": 5
+  },
+  "resource": {
+    "temporary_exact_GNN_inference_cache_if_missing": "must inspect budget first",
+    "parallel_gpu_jobs": 1,
+    "reuse_verified_frozen_embeddings": true,
+    "no_CPU_compute_fallback": true,
+    "max_new_cache_bytes": 0
+  },
+  "acceptance": [
+    "finite losses and gradients",
+    "all declared candidate runs validation-only",
+    "freeze highest validation candidate only if minimum gain met",
+    "saved classifier hash bound before single test confirmation",
+    "full official prediction/rank recomputation",
+    "log CSV JSONL TensorBoard consistency",
+    "PNG visual verification",
+    "explicit optimizer/L2/LP-head reconstruction deviations",
+    "no repeated test-driven search"
+  ],
+  "self_review": {
+    "is_change_supported": "WN optimizer conditioning hypothesis uses validation oscillation, not confirmed cause. LP head/schedule choices have pinned official upstream evidence, not CAME author confirmation.",
+    "could_be_wrong": "Frozen encoder transfer quality may cap performance; solver/head changes may not close the gap.",
+    "decision": "Use bounded validation-only comparisons; reject weaker candidates and preserve references."
+  }
+}

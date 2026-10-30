@@ -1,0 +1,88 @@
+{
+  "status": "planning_only_not_an_executable_runner_profile",
+  "scope": "six remaining main tasks; pilot before full repeats",
+  "depends_on_four_node_classifiers": false,
+  "depends_on_four_node_scores": false,
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "extra_pretraining_updates": 0,
+  "first_pilot": {
+    "dataset": "WN18RR",
+    "task": "relation",
+    "seed": 0,
+    "epochs": 2000,
+    "patience": 100,
+    "inference_batch_size": 32
+  },
+  "tasks": [
+    {
+      "dataset": "WN18RR",
+      "task": "relation",
+      "metric": "accuracy",
+      "paper_pct": 81.97
+    },
+    {
+      "dataset": "FB15K237",
+      "task": "relation",
+      "metric": "accuracy",
+      "paper_pct": 94.59
+    },
+    {
+      "dataset": "sports-copurchase",
+      "task": "link",
+      "metric": "official_mrr",
+      "paper_pct": 37.68
+    },
+    {
+      "dataset": "cloth-copurchase",
+      "task": "link",
+      "metric": "official_mrr",
+      "paper_pct": 28.88
+    },
+    {
+      "dataset": "books-lp",
+      "task": "link",
+      "metric": "official_mrr",
+      "paper_pct": 10.42
+    },
+    {
+      "dataset": "ogbn-products",
+      "task": "node",
+      "metric": "accuracy",
+      "paper_pct": 81.84
+    }
+  ],
+  "selection": {
+    "split": "official_validation",
+    "test_evaluations_per_frozen_run": 1,
+    "test_used_for_tuning": false
+  },
+  "comparison": {
+    "preferred_absolute_gap_pp": 2.0,
+    "user_review_margin_pp": 3.0,
+    "lp_relative_gap_also_reported": true,
+    "score_guaranteed": false
+  },
+  "protocol": [
+    "Frozen existing encoder, official full downstream tests, fresh task-specific heads; four NC heads and scores are not inputs.",
+    "NC accuracy, relation-classification accuracy and link MRR remain separate metrics.",
+    "LP topology contains train positives only; fixed official negatives; no blanket bidirectionality; report reverse-overlap subset separately.",
+    "KG topology contains training triples only; labels are relations, not a KG link-prediction surrogate.",
+    "First pilot uses predeclared settings; official validation chooses epoch, never test or paper proximity.",
+    "Pilot score differences are disclosed; no guarantee all six tasks reproduce paper values."
+  ],
+  "resources": {
+    "serial_cuda_jobs": 1,
+    "first_pilot_embedding_bytes": 167702528,
+    "products_embedding_bytes": 10031222784,
+    "reserve_free_gib": 3,
+    "reuse_global_storage_budget": true,
+    "first_pilot_started": true
+  },
+  "paper_source": "CAME 4545 ICML 2026.pdf, page 7 Table 1; extracted artifacts/audit/paper_reread_20261011/page_07.txt",
+  "unresolved_author_details": [
+    "Exact author KG graph loading/direction",
+    "Exact LP head/optimizer/negative sampling recipe",
+    "Exact author inference details"
+  ],
+  "kg_paper_confirmed_protocol": "Appendix C page 14: concatenate head/tail embeddings; frozen encoder; linear cross-entropy classifier; lr=.05; max2000; validation early stopping."
+}

@@ -1,0 +1,21 @@
+{
+  "stage": "bounded_train_only_negative_objective_candidate",
+  "declared_before_first_convergence_test": true,
+  "declaration_evidence": "Sports uniform-negative BCE about0.017 by step50 while full validation MRR about0.375; train objective uses1 negative, official ranking uses150. No new test result used to set this candidate.",
+  "tasks": ["sports-copurchase", "cloth-copurchase"],
+  "seed": 0,
+  "max_candidates_per_task": 1,
+  "negative_pool_size": 4,
+  "negative_selection": "max current head score among four uniform known-train nonedges; selection computed without gradients",
+  "known_positive_policy": "all original train positives and their reverses only; never consult validation/test edges to filter training negatives",
+  "initialization": "fresh fixed seed0; same head architecture and frozen1024 encoder/cache",
+  "head_recipe": "maximum completed validation MRR among previously declared graph/convergence heads; not test",
+  "budget": {"sports_max_epochs":60,"cloth_max_epochs":300,"patience":10,"GPU_jobs":1,"new_embedding_cache_bytes":0,"checkpoint_metadata_reservation_bytes":268435456},
+  "gate": {"minimum_validation_gain_pp":0.5,"locked_head_full_official_test_once":true,"paper_gap_delivery_target_pp":2},
+  "test_used_for_optimizer_or_seed_selection": false,
+  "do_not_retrain_tasks_already_meeting_user_target": true,
+  "engineering_deviation": "CAME LP head/negative-training details are unreleased. Four-way hard negative training is a declared engineering candidate, not asserted author implementation.",
+  "preserved": ["all author files", "same encoder weights and1024 width", "official graph/view", "all official labeled splits and150 fixed test negatives", "five passing repeated task results"],
+  "acceptance": ["actual Torch and DGL CUDA", "hard selection is correct max of sampled scores", "all sampled pairs are train-only nonedges and no reverse train positives", "finite loss and gradients", "checkpoint/RNG/optimizer resume reproducible", "full source-target/rank independent MRR and reverse-overlap check", "CSV JSONL TB PNG and parentSHA", "do not turn partial training into an epoch"],
+  "score_guaranteed": false
+}

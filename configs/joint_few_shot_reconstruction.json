@@ -1,0 +1,10 @@
+{
+  "name": "joint_few_shot_reconstruction",
+  "stage": "paper_reconstruction_with_declared_assumptions",
+  "seed": 42,
+  "datasets": ["ogbn-products", "books-nc", "cloth-copurchase"],
+  "model": {"hidden_dim": 1024, "heads": 4, "layers": 2, "dropout": 0.3, "experts_per_view": 6, "top_k": 2, "temperature": 0.07, "w_tv": 0.5, "w_tf": 0.1, "w_vf": 0.5},
+  "sampling": {"top_k": 128, "alpha": 0.15, "epsilon": 0.0001, "max_pushes": 100000, "seed_batch_size": 32, "direction": "official_directed", "seed_limits": {"ogbn-products": null, "books-nc": null, "cloth-copurchase": null}},
+  "training": {"epochs": 8, "max_steps": null, "lr": 0.0001, "weight_decay": 0.0, "checkpoint_every": 250, "precision": "fp32", "max_grad_norm": 1.0, "gradient_abort_norm": 10000.0},
+  "deviations": ["Few-shot corpus differs from representation corpus per paper section 5.2: Goodreads-NC is used instead of Goodreads-LP.", "PPR parameters, graph mixing, optimizer defaults and seed budget are declared reconstruction assumptions.", "Each epoch exhausts all node seeds in all three graphs; no step cap in the saved base profile.", "Gradient clipping to 1.0 and the Windows/CUDA11.8 environment are documented engineering adaptations."]
+}

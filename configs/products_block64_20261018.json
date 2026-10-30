@@ -1,0 +1,22 @@
+{
+  "schema": "came_products_gpu_block64_compatibility_v1",
+  "base_profile_sha256": "2449ee86f001bc5293e7266440c814ddc9e6f2b2537aee511c9626c40a0bc2b4",
+  "failure_audit_sha256": "af6e7b150c7c0dfbe44bbb8bbea9827ceaf2d1c2cb06c58d9870d00d3c9b5ce3",
+  "CPU_graph_ID_type": "int32_CSC",
+  "GPU_sampled_block_ID_type": "int64",
+  "neural_precision": "FP32",
+  "width": 1024,
+  "full_nodes": 2449029,
+  "official_test_nodes": 2213091,
+  "maximum_new_test_evaluations": 1,
+  "combined_active_budget_hours": 24,
+  "wait_for_current_WN_and_Cloth": true,
+  "do_not_hot_modify_active_sources": true,
+  "old_prefix_sha256": "1bc94fccf46e93ce8f5ee53d7831e6b8ed578f0be4fd2972411b72400f9c9ec3",
+  "old_prefix_cursor": 124752,
+  "numeric_rtol": 2e-05,
+  "numeric_atol": 2e-05,
+  "resources": "Reuse compact index and existing full output; only metadata/small fixtures added",
+  "scientific_recipe_changes": false,
+  "root_cause_proven": false
+}

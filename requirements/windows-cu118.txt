@@ -1,0 +1,8 @@
+numpy==1.26.4
+scipy==1.13.1
+matplotlib==3.9.4
+scikit-learn==1.6.1
+tensorboard==2.19.0
+pytest==8.3.5
+psutil==6.1.1
+dgl @ https://data.dgl.ai/wheels/cu118/dgl-1.1.2%2Bcu118-cp39-cp39-win_amd64.whl

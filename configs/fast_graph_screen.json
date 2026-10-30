@@ -1,0 +1,21 @@
+{
+  "name": "fast_graph_protocol_screen",
+  "datasets": ["wiki-cs", "ogbn-arxiv", "books-nc"],
+  "seed": 0,
+  "wiki_split_id": 0,
+  "probe_epochs": 2000,
+  "probe_patience": 100,
+  "validation_cache_mib": 400,
+  "owned_cache_limit_gib": 3,
+  "inference_batches": {"wiki-cs": 32, "ogbn-arxiv": 32, "books-nc": 128},
+  "min_validation_gain_pp": 0.5,
+  "extra_pretraining_updates": 0,
+  "cumulative_time_limit": null,
+  "notes": [
+    "Reuse the eight-round original encoder and completed references. Ele-fashion unchanged.",
+    "Choose bidirected NC topology only with predefined validation improvement. Confirm once after freezing the policy; test scores never select it.",
+    "Reuse the already frozen Wiki-CS confirmation. Remaining deficient domains run one seed each.",
+    "Keep embeddings between validation and confirmation to avoid a second graph encoding, then remove only owned derived caches.",
+    "One seed and one Wiki-CS split are diagnostics, not the complete paper statistics. Exact author preprocessing and some training details remain unconfirmed."
+  ]
+}

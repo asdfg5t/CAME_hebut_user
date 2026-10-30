@@ -1,0 +1,14 @@
+{
+  "repo": "mm-graph-benchmark/mm-graph-benchmark",
+  "revision": "main fetched 2026-10-09; upstream commit API rate limited",
+  "files": [
+    "nc/nc_dataset.py",
+    "lp/lp_dataset.py",
+    "LICENSE"
+  ],
+  "sha256": {
+    "nc/nc_dataset.py": "0bef04aeb06c1f49b4d3f91b5adfb81b057535d6a7a727724aa57c6bda1a951b",
+    "lp/lp_dataset.py": "3127e10cdb3399e11aee1a0a34f5971d4cb52f8b235b829af4d42f5b7a83b094",
+    "LICENSE": "81b4f494d287c1a92659994376208ebf7ada2bbe4c739dc91af4ce61d33964dc"
+  }
+}

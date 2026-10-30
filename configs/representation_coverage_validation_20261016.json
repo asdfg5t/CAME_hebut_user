@@ -1,0 +1,133 @@
+{
+  "stage": "one_fresh_joint_representation_coverage_candidate",
+  "configuration_sha256": "cd38bd191c81012448b5d07ce0b4eb9ddfc791e8d04c2f2eb7c314bf8c0720d0",
+  "fresh_initialization": true,
+  "pretraining_seed": 42,
+  "downstream_seed": 0,
+  "expected_updates": 20480,
+  "subset_rounds": 8,
+  "full_graph_epochs_claimed": 0,
+  "max_representation_candidates": 1,
+  "maximum_validation_candidates_per_task": 1,
+  "minimum_validation_gain_pp": 0.5,
+  "goal_abs_gap_pp": 2.0,
+  "score_guaranteed": false,
+  "reference_validation": {
+    "cloth": 0.3025347366384903,
+    "wn": 0.7982860909690178
+  },
+  "reference_note": "Cloth uses the stronger completed refinement validation; WN uses the stronger original affine validation. No test chooses models.",
+  "references": {
+    "cloth": {
+      "run": "E:\\danzi\\A Graph Foundation Model with Cross-Modal Alignment and Modality-Aware Expert Fusion for Multi-Modal Graphs\\runs\\20261015T233708Z_priority_clo_73daaf_s0_a2c6c7",
+      "summary_sha256": "487f4739c1c0d7f2e70735656936bd316bbaa3fcac86459bb4ab4809c62980a7"
+    },
+    "wn": {
+      "run": "E:\\danzi\\A Graph Foundation Model with Cross-Modal Alignment and Modality-Aware Expert Fusion for Multi-Modal Graphs\\runs\\20261014T045920Z_kg_affine_WN_fce445_s0_cb5aeb",
+      "summary_sha256": "1a7dad287d75daac3c83122d79045e1e99c11f69e1018fcd5d0ef52fe7065b6a"
+    }
+  },
+  "WN": {
+    "candidate": "exact_OFA_entity_prefix",
+    "prefix": "feature node. entity and entity description: ",
+    "graph_policy": "train_reverse",
+    "clip_batch_size": 128,
+    "max_length": 77,
+    "head_recipe": "previous_validation_selected_Adam_train_pair_affine",
+    "max_candidates": 1
+  },
+  "cloth_recipe": {
+    "head_variant": "two_hidden_layernorm_head_upstream_schedule",
+    "lr": 0.001,
+    "batch_size": 4096,
+    "max_epochs": 300,
+    "patience": 10,
+    "step_lr_size": null,
+    "step_lr_gamma": null,
+    "loss_reduction": "separate_mean_sum"
+  },
+  "test_used_for_selection": false,
+  "formal_repeats_started": 0,
+  "private_ppr_root": "E:\\danzi\\A Graph Foundation Model with Cross-Modal Alignment and Modality-Aware Expert Fusion for Multi-Modal Graphs\\artifacts\\representation_coverage_20261016\\ppr_namespace",
+  "resource_reservation": {
+    "project_unique_file_bytes": 35344472995,
+    "external_cache_bytes": 23781328174,
+    "project_free_bytes": 25935470592,
+    "cache_free_bytes": 41381937152,
+    "project_high_water_gib": 40,
+    "cache_high_water_gib": 30,
+    "reserve_free_gib": 3,
+    "requested_project_bytes": 536870912,
+    "requested_cache_bytes": 4294967296,
+    "within_budget": true,
+    "raw_and_experiment_records_deleted": false
+  },
+  "source_evidence": {
+    "CAME": "https://proceedings.mlr.press/v306/he26at.html",
+    "paper_local_pages": [
+      14,
+      16
+    ],
+    "author_subset_counts_published": false,
+    "upstream_MMGraph_revision": "0769fa670c69a6dc0756a2d7fc697b980e494775",
+    "OFA_revision": "9045ccdfa2d02fd55841700e7d72ef563bbc2de9"
+  },
+  "unknowns": [
+    "CLIP exact checkpoint semantics",
+    "CAME subset counts/mixing/PPR hyperparameters",
+    "CAME exact graph and LP loader/head"
+  ],
+  "protected": [
+    "all six formal task results",
+    "all original author files",
+    "old encoder",
+    "historical raw data/runs/caches",
+    "Products committed prefix"
+  ],
+  "clones": {
+    "ogbn-products": {
+      "source": "E:\\danzi\\A Graph Foundation Model with Cross-Modal Alignment and Modality-Aware Expert Fusion for Multi-Modal Graphs\\data\\processed\\ppr_packed\\7384779394cfe3ab4361\\neighbors.sqlite3",
+      "private": "E:\\danzi\\A Graph Foundation Model with Cross-Modal Alignment and Modality-Aware Expert Fusion for Multi-Modal Graphs\\artifacts\\representation_coverage_20261016\\ppr_namespace\\data\\processed\\ppr_packed\\7384779394cfe3ab4361\\neighbors.sqlite3",
+      "source_sha256": "89dc01e1dd718dfa05f4417c3d9836385797b8e493c46e6333b031311c83b28e",
+      "logical_rows": 16448,
+      "logical_sha256": "52ea8df0460bb8bbd3d78c88b5b84973750c084e2c261786969711ce7305f715",
+      "historical_cache_modified": false
+    },
+    "books-lp": {
+      "source": "E:\\danzi\\A Graph Foundation Model with Cross-Modal Alignment and Modality-Aware Expert Fusion for Multi-Modal Graphs\\data\\processed\\ppr_packed\\c66dec82864f7b6c6732\\neighbors.sqlite3",
+      "private": "E:\\danzi\\A Graph Foundation Model with Cross-Modal Alignment and Modality-Aware Expert Fusion for Multi-Modal Graphs\\artifacts\\representation_coverage_20261016\\ppr_namespace\\data\\processed\\ppr_packed\\c66dec82864f7b6c6732\\neighbors.sqlite3",
+      "source_sha256": "c8516b8d5ce49aecda55e6b73d6d781edb3ac9c60ad71db104e9780c843dce7d",
+      "logical_rows": 16445,
+      "logical_sha256": "284fdffd105d586ce381717b5df3e665908128b4187b61c79523fba3411b3c19",
+      "historical_cache_modified": false
+    },
+    "cloth-copurchase": {
+      "source": "E:\\danzi\\A Graph Foundation Model with Cross-Modal Alignment and Modality-Aware Expert Fusion for Multi-Modal Graphs\\data\\processed\\ppr_packed\\613bd0e466d7f8cff6fc\\neighbors.sqlite3",
+      "private": "E:\\danzi\\A Graph Foundation Model with Cross-Modal Alignment and Modality-Aware Expert Fusion for Multi-Modal Graphs\\artifacts\\representation_coverage_20261016\\ppr_namespace\\data\\processed\\ppr_packed\\613bd0e466d7f8cff6fc\\neighbors.sqlite3",
+      "source_sha256": "68e9d3a4a8dea0f4a889904dad4f72d645e2549acccbf358890ea8e080c80971",
+      "logical_rows": 8279,
+      "logical_sha256": "17bf17e55f0101b0edbf4525dfe654c67f51d9f2ba4e1e92f84e96ae00b40128",
+      "historical_cache_modified": false
+    }
+  },
+  "pools": {
+    "ogbn-products": {
+      "count": 32768,
+      "old_prefix_count": 16384,
+      "sha256": "f10fd2129591fcf792b05b792d02ce1de00b6a3b2b5f15034f99f57edb71b391",
+      "original_prefix_identical": true
+    },
+    "books-lp": {
+      "count": 32768,
+      "old_prefix_count": 16384,
+      "sha256": "8db68be8aa92697ded7015f3ccb7b8dccbe4a10ba2326cd0a8d619e8dce63ae4",
+      "original_prefix_identical": true
+    },
+    "cloth-copurchase": {
+      "count": 16384,
+      "old_prefix_count": 8192,
+      "sha256": "74979b4cca8ea5e982c6871fec006a9070617c7203531513a1ea453f3b574496",
+      "original_prefix_identical": true
+    }
+  }
+}

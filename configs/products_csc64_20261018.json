@@ -1,0 +1,32 @@
+{
+  "schema": "came_products_native_csc64_v1",
+  "base_profile_sha256": "2449ee86f001bc5293e7266440c814ddc9e6f2b2537aee511c9626c40a0bc2b4",
+  "frozen_dependencies": {
+    "scripts/run_11_products_block64_repair.py": "e2ce1b51ed77082357221c2638a6d9a7463ea0299a7298348f0bec6eb4f33ebb",
+    "scripts/unresolved_backend_20261018.py": "6a33383c59ecfb69991434df80fa36ffbb73c5da106240d13549e554c81fbdcb",
+    "scripts/unresolved_products_full_20261018.py": "b7b3920d891cef182f543deaa5b46c730a4786dd6bff05ef5145ca2edf8fe080",
+    "configs/all_unresolved_20261018.json": "2449ee86f001bc5293e7266440c814ddc9e6f2b2537aee511c9626c40a0bc2b4",
+    "artifacts/audit/unresolved_bounded_completion_20261018.json": "cf929813eafb0ee38a9bb7b4d1b2d4e3721706bc9526fecdb102ff741414a672"
+  },
+  "full_nodes": 2449029,
+  "official_test_nodes": 2213091,
+  "width": 1024,
+  "maximum_new_test_evaluations": 1,
+  "disk_CSC_idtype": "int32",
+  "CPU_graph_and_sampling": "int64",
+  "GPU_blocks": "native_int64",
+  "neural_precision": "FP32",
+  "scientific_recipe_changes": false,
+  "previous_failed_compatibility_active_seconds": 329.42377919999126,
+  "combined_active_hours": 24,
+  "extra_project_bytes": 67108864,
+  "extra_cache_bytes": 67108864,
+  "expected_extra_live_RAM_GiB": 0.5,
+  "expected_extra_cache_GiB": 0,
+  "minimum_nodes_per_second": 30,
+  "maximum_private_memory_fraction": 0.8,
+  "unchanged_calibration": "same original high-degree/uniform/prefix probes and 512 contiguous rows, rtol/atol2e-5",
+  "root_cause_proven": false,
+  "formal_repeats": false,
+  "no_test_based_selection": true
+}

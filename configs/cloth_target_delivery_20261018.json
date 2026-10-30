@@ -1,0 +1,31 @@
+{
+  "schema": "came_cloth_single_confirmation_then_ten_seeds_v1",
+  "dataset": "cloth-copurchase",
+  "main_task_number": "08",
+  "paper_mrr_pct": 28.88,
+  "target_absolute_gap_pp": 2.0,
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "validation_run": "runs/20261018T015347Z_cloth_dropou_5de5ff_s0_30ad42",
+  "validation_summary_sha256": "5f410622a970456328eab822dfb1d8e84059df38f1efaa5caf6f0d7043b490f5",
+  "selection": "Highest completed official validation in previously declared delivery candidate pool at handoff; incomplete listwise run excluded. No new test has selected this recipe.",
+  "training_kind": "dropout_bce",
+  "nodes": 125839,
+  "official_validation_queries": 121323,
+  "official_test_queries": 97456,
+  "fixed_negative_candidates": 150,
+  "width": 1024,
+  "graph_policy": "upstream_train_bidirected_unique",
+  "historical_tests_seen": true,
+  "prior_diagnostic_half_pp_gate_not_reclassified": true,
+  "maximum_new_seed0_confirmations": 1,
+  "no_automatic_strategy_search_after_test": true,
+  "formal_repeats_scope": "Ten downstream initialization seeds sharing one existing frozen joint encoder, not ten pretraining seeds.",
+  "budget": {"additional_project_bytes": 134217728, "additional_cache_bytes": 1073741824},
+  "protocol_limitations": [
+    "Author's exact LP predictor/loss/optimization recipe is unreleased; this dropout/LayerNorm/hard-negative head is an engineering reconstruction.",
+    "Existing train-edge bidirection adaptation preserved; official reverse overlap is reported separately and not claimed leakage-free.",
+    "User requested a test-score admission gate for repetition cost. Report this conditional continuation and all results; it is not an untouched blind study.",
+    "Passing seed0 does not guarantee the other seeds or the final mean meet 2pp. No seed filtering or artificial score changes."
+  ]
+}

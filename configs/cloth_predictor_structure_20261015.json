@@ -1,0 +1,46 @@
+{
+  "stage": "one_matched_Cloth_predictor_structure_candidate",
+  "client_date": "2026-10-15",
+  "reference_validation_run": "runs/20261014T123209Z_hard_lp_clot_42d368_s0_fa6c27",
+  "reference_validation_summary_sha256": "9926b1aad10c348dac04271fad4e3b9a5ea7b981ffd0f299d2f562e1978e31c9",
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "reference_validation_mrr": 0.2946385969067477,
+  "candidate_head_variant": "two_hidden_layernorm_head_upstream_schedule",
+  "matched_recipe": {
+    "head_variant": "existing_two_layer_head_upstream_schedule",
+    "lr": 0.001,
+    "batch_size": 4096,
+    "max_epochs": 300,
+    "patience": 10,
+    "step_lr_size": null,
+    "step_lr_gamma": null,
+    "loss_reduction": "separate_mean_sum"
+  },
+  "only_changed_training_component": "predictor architecture: two hidden1024 Linear/LayerNorm/ReLU blocks instead of one hidden Linear/ReLU",
+  "negative_pool_size": 4,
+  "negative_policy": "max_score_train_and_reverse_known_nonedge",
+  "seed": 0,
+  "minimum_validation_gain_pp": 0.5,
+  "official_validation_queries": 121323,
+  "official_test_queries": 97456,
+  "fixed_negative_candidates": 150,
+  "test_once_after_locked_validation_choice": true,
+  "test_used_to_choose_parameters_or_seed": false,
+  "score_guaranteed": false,
+  "engineering_adaptation_not_CAME_author_confirmed": true,
+  "source_evidence": "artifacts/audit/cloth_predictor_structure_review_20261015.json",
+  "resources": {
+    "new_embedding_cache_bytes": 0,
+    "GPU_jobs": 1,
+    "full_encoder_and_head_width": 1024,
+    "checkpoint_metadata_reservation_bytes": 536870912,
+    "CPU_compute_fallback": false
+  },
+  "start_after": "Sports all10 downstream seeds completed and global GPU lock free",
+  "protected": [
+    "Sports numbered immutable delivery and all its seeds",
+    "five completed repeated tasks",
+    "all author originals",
+    "all existing raw data/runs/checkpoints"
+  ]
+}

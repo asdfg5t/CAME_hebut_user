@@ -1,0 +1,39 @@
+{
+  "dataset": "books-lp",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "test_score_admission_gate": false,
+  "official_test_queries": 1710677,
+  "fixed_test_negatives": 150,
+  "cache_width": 1024,
+  "reference_run": "runs/20261014T013045Z_lp_single_bo_cff256_s0_ad2b38",
+  "embedding_cache": "C:\\Users\\DELL\\came_reproduction_cache\\01a12085-0d33-7121-8ca9-6a18d16a84f4\\embeddings\\1fd5a614766cf52fe15c\\books-lp",
+  "encoder_checkpoint": "C:\\Users\\DELL\\came_reproduction_cache\\01a12085-0d33-7121-8ca9-6a18d16a84f4\\checkpoints\\20261011T105355Z_suite_pretra_0c927d_s42_9521d7\\encoder_final.pt",
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "split_sha256": "36e3da17b5a6bd711721e5f00061bf725f9603acf3f1ec410a4895a5eadd6b94",
+  "prepared_manifest_sha256": "000581b0bf1eb9620e4d669a1471fe83408f8721258cd65fe2cf693a9b9b0b30",
+  "upstream_archive": "data/raw/source_archives/mm-graph-benchmark-0769fa670c69a6dc0756a2d7fc697b980e494775.zip",
+  "upstream_archive_sha256": "491a0056d7767063def646052881852159fd071e6966b1533361083642c9cd96",
+  "upstream_model_member": "mm-graph-benchmark-0769fa670c69a6dc0756a2d7fc697b980e494775/lp/models.py",
+  "recipe": {
+    "lr": 0.0005,
+    "batch_size": 512,
+    "positive_budget_per_round": 512000,
+    "max_rounds": 30,
+    "patience": 10,
+    "scheduler_step": 5,
+    "scheduler_gamma": 0.1
+  },
+  "author_LP_details_confirmed": false,
+  "paper_mrr_pct": 10.42
+}

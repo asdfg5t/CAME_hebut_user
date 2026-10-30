@@ -1,0 +1,32 @@
+{
+  "schema": "came_limited_budget_v1",
+  "name": "same_method_representative_12h",
+  "total_wall_hours": 12,
+  "pretraining_seed": 42,
+  "representation_max_updates": 6000,
+  "few_shot_max_updates": 4000,
+  "representation_wall_hours": 3,
+  "few_shot_wall_hours": 2,
+  "reuse_existing_checkpoints": true,
+  "evaluation_seed": 0,
+  "wiki_split_id": 0,
+  "probe_max_epochs": 150,
+  "probe_patience": 30,
+  "lp_max_epochs": 10,
+  "lp_patience": 3,
+  "inference_batch_size": 32,
+  "products_inference_batch_size": 4,
+  "max_job_wall_minutes": 60,
+  "products_max_job_wall_minutes": 120,
+  "include_large_domains": false,
+  "include_clip_baselines": true,
+  "ablation_variants": ["without_text_vision_loss", "without_dimension_gate"],
+  "ablation_max_updates": 500,
+  "ablation_wall_hours": 0.5,
+  "notes": [
+    "Representative full-domain tasks: Ele-fashion/Wiki-CS/Arxiv NC, Sports LP, FB15K237 relation classification, Wiki-CS/Arxiv few-shot.",
+    "Products and both book domains remain in their original pretraining corpora. Large downstream evaluations are explicitly deferred, raw data untouched.",
+    "Model/method retained; partial update budget, one seed/split and reduced head budgets. This is not complete paper reproduction.",
+    "Global twelve-hour deadline stops work and records unfinished jobs; lower scores are possible but never assumed or fabricated."
+  ]
+}

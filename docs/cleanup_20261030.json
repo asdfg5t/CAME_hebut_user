@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-30",
+  "timezone": "Asia/Shanghai",
+  "removed_python_files": [
+    {
+      "path": "tmp/weekly_report_20261016/build_copyable_word.py",
+      "bytes": 27482,
+      "sha256": "41560f8e06355a6d648cb2c32bbad9f29bd5c359a584b81a2a800786745cb26c"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/check_academic_schematic_package.py",
+      "bytes": 2872,
+      "sha256": "f2266e7642f3ee980f4a9625785a221192d03fd4847bf1cbf544c42c0a8ee711"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/embed_planning_figures.py",
+      "bytes": 10446,
+      "sha256": "3334368caf1e3ee3f8d524c70d01f307c2d605adec8cff30e3d07d6ea7314125"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/finalize_native_math.py",
+      "bytes": 1932,
+      "sha256": "2fcd0e8b32fefff24785d4a5b83196c22cf97a3d0349bf00cc7c2f72a1292c29"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/normalize_copyable_text.py",
+      "bytes": 3428,
+      "sha256": "64fb8a9137b957ad95f8ec1844f05fa792e31fe7a5598c569bc133f8887bc4e4"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/package_final_copyable.py",
+      "bytes": 2624,
+      "sha256": "3bc515306b422e8707fc3418225ef5eabe690fdd82fe618fc5211bd2ef40ffaa"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/package_optional_bw_figures.py",
+      "bytes": 2430,
+      "sha256": "84e6643558efea0977b5d6488bc3aa2f6eaa98bda17e5f9865952eac86b8543c"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/package_white_background_svg.py",
+      "bytes": 2009,
+      "sha256": "a14e53a224b72b1345dc2aa26978aa771147173d1367550c681eceb28cdd60a4"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/render_monochrome_paper_figures.py",
+      "bytes": 1303,
+      "sha256": "f266d6518f56025fec70e52f9a73c49bc9cc1585f2f0945e6b0e69f7c9440c91"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/simplify_to_text_and_figures.py",
+      "bytes": 15655,
+      "sha256": "535bed5e61370802f5e0459623aad25580de8563d36417eb555fb937adf9a538"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/verify_copyable_final.py",
+      "bytes": 3717,
+      "sha256": "ba9f15a7b60cfad2a0eaf06d89c7f31ace7e5ada6e1287d53c7555324f8a4677"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/docx_math_deps/latex2mathml/commands.py",
+      "bytes": 19804,
+      "sha256": "715a444fe656056d122216806c48d48e1fc3d51109b0bfc6a8a1d9c28c275d7c"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/docx_math_deps/latex2mathml/converter.py",
+      "bytes": 28283,
+      "sha256": "d0e0ddc1684bb64706921144311f372b3a2fabc6f4e0082d3e0c91d0a9dccce1"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/docx_math_deps/latex2mathml/exceptions.py",
+      "bytes": 645,
+      "sha256": "cc5d713dc9554524f3bd91cfb2e8ccbff6cd2139c7356ec9be2e3083468143ad"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/docx_math_deps/latex2mathml/symbols_parser.py",
+      "bytes": 2768,
+      "sha256": "b40945e814d20efbfb2b115ec96bbe246067e089db05dabde7dadad7099a0286"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/docx_math_deps/latex2mathml/tokenizer.py",
+      "bytes": 2458,
+      "sha256": "09c491e1299e12ab8059682104be6b7076d402b290c5a8b0bbbec7558a147a8d"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/docx_math_deps/latex2mathml/walker.py",
+      "bytes": 31001,
+      "sha256": "829a59f9f2f9b19fff8a8a9dd597273ebea1c391daee8a184498622d612421f3"
+    },
+    {
+      "path": "tmp/weekly_report_20261016/docx_math_deps/latex2mathml/__init__.py",
+      "bytes": 79,
+      "sha256": "c40e46a96819a9b4efd1351e3a2c01a4e93c0f8f226c496c648d4e19312786e9"
+    },
+    {
+      "path": "PPT汇总/全任务汇报_20261026/证据/collect_report_data.py",
+      "bytes": 11831,
+      "sha256": "6a72c67e798814a1bc38c1426d7d430da8d7a0bd2b4924615c5d24f4c5e57172"
+    },
+    {
+      "path": "PPT汇总/全任务纯图与实验记录_20261026/证据/build_plain_figures.py",
+      "bytes": 33169,
+      "sha256": "c2a58435fe37965cd8fceec0d1fb632fa814e7e657a755a7edc4301cbb314b60"
+    },
+    {
+      "path": "PPT汇总/全任务纯图与实验记录_20261026/证据/build_supplement_overview.py",
+      "bytes": 4357,
+      "sha256": "5ea2adc8519cc2690f5df756b65a01ef49abdc2450951ea98eb28acbfcea4cc7"
+    },
+    {
+      "path": "PPT汇总/全任务纯图与实验记录_20261026/证据/collect_report_data.py",
+      "bytes": 11831,
+      "sha256": "6a72c67e798814a1bc38c1426d7d430da8d7a0bd2b4924615c5d24f4c5e57172"
+    },
+    {
+      "path": "PPT汇总/第一阶段/审阅记录/旧版整页配图_20261016/build_weekly_background_figures.py",
+      "bytes": 16301,
+      "sha256": "e9eec6ba2f4a0f7c11fd450425f0a3f17beec7a162513b076005bd2fa1b19892"
+    },
+    {
+      "path": "PPT汇总/第一阶段/证据/task_report_narratives.py",
+      "bytes": 22453,
+      "sha256": "8c54252c6eb27777e5c3e99e2eb2e046e750ecf24a14d4b17c6f49ff3ac0c105"
+    },
+    {
+      "path": "PPT汇总/第一阶段/证据/核验近期汇报交付.py",
+      "bytes": 8432,
+      "sha256": "b4edfaaea1d859767964477e3d9ed968d3503323a4e465f33995bc279d1f4692"
+    },
+    {
+      "path": "PPT汇总/第一阶段/证据/汇报证据整理.py",
+      "bytes": 10553,
+      "sha256": "2615c862aa60c4ca08c52dd1c60822db58bdf48302ccecacff6a56e1ddd73de5"
+    },
+    {
+      "path": "PPT汇总/第一阶段/证据/生成一页一作业汇报.py",
+      "bytes": 19853,
+      "sha256": "f89315770290299024d7c9316582ac387d3451d7b6097703ae12f8eb7eb89b12"
+    },
+    {
+      "path": "PPT汇总/第一阶段/证据/生成完成作业精简汇报.py",
+      "bytes": 22362,
+      "sha256": "85be4854d926f104314bed3f6934e0e570e042a9d0db9300f17b3587cf190aac"
+    },
+    {
+      "path": "PPT汇总/第一阶段/证据/生成实验汇报.py",
+      "bytes": 68945,
+      "sha256": "6a08986a57393b3f80c2b0dd8899d6dd2c124cc328493919df082d8e3d6a4ee9"
+    },
+    {
+      "path": "PPT汇总/第一阶段/证据/生成近期PPT规划.py",
+      "bytes": 26495,
+      "sha256": "63109faa010505d931bb063839fb68aaa1241f749adedcf05d6ab0d406de8066"
+    },
+    {
+      "path": "PPT汇总/第一阶段/证据/生成近期实验配图.py",
+      "bytes": 24873,
+      "sha256": "fa710eb92b26f4d073973628d967b5fb8ab4d8e18967fe8a8cd82307a9f498cb"
+    },
+    {
+      "path": "scripts/build_stage23_review_assets.py",
+      "bytes": 38329,
+      "sha256": "ac214a135f1511a9fd6733001343d75c6028d8fcd0b66217b0db066188b99451"
+    },
+    {
+      "path": "scripts/build_stage23_visual_pack.py",
+      "bytes": 28537,
+      "sha256": "37d7b6af86e9ecf85ad6e13310d4a0343fd09485e1a42088cf42c401d3d0941b"
+    }
+  ],
+  "removed_python_count": 33,
+  "removed_python_bytes": 507257,
+  "removed_cache_directories": [
+    "tmp/weekly_report_20261016/docx_math_deps/latex2mathml/__pycache__",
+    "PPT汇总/第一阶段/证据/__pycache__",
+    "src/came_repro/__pycache__",
+    "scripts/__pycache__",
+    "tests/__pycache__",
+    ".pytest_cache",
+    "__pycache__"
+  ],
+  "local_recovery_archive": ".local_cleanup/removed_python_20261030.zip",
+  "frozen_inputs_checked_unchanged": 248,
+  "original_files_verified": [
+    "model.py",
+    "fusion_modules.py",
+    "CAME 4545 ICML 2026.pdf"
+  ],
+  "training_started": false,
+  "verification": {
+    "tests": "tests/test_run_environment.py tests/test_paper_task_groups.py",
+    "passed": 23,
+    "failed": 0,
+    "cuda_training_started": false,
+    "documentation_relative_links_valid": true
+  }
+}

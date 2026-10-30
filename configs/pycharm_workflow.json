@@ -1,0 +1,21 @@
+{
+  "schema": "came_pycharm_v1",
+  "pretraining_seed": 42,
+  "evaluation_seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "wiki_split_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  "representation_encoder": null,
+  "few_shot_encoder": null,
+  "representation_resume_checkpoint": null,
+  "few_shot_resume_checkpoint": null,
+  "inference_batch_size": 64,
+  "probe_batch_size": 0,
+  "ablation_config": "configs/ablations/without_text_vision_loss.json",
+  "ablation_resume_checkpoint": null,
+  "notes": [
+    "Null encoder selects the latest completed eight-epoch MAIN encoder of the correct corpus and pretraining seed, never a partial pilot or a best-test model.",
+    "One encoder is reused across ten downstream seeds. This is not ten independent pretraining runs.",
+    "Wiki-CS uses all twenty official splits; ten seeds per split produce two hundred probes.",
+    "Full budgets and declared reconstruction assumptions remain in the existing stage configurations.",
+    "Pretraining resume paths must be set explicitly. Batch stages skip only verified successful child runs in their own matching ledger; an unfinished child restarts unless resumed using the existing head CLI."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "raw_root": "data/raw",
+  "prepared_root": "data/processed",
+  "run_metadata_root": "runs",
+  "large_checkpoint_root": "C:/Users/DELL/came_reproduction_cache/01a12085-0d33-7121-8ca9-6a18d16a84f4/checkpoints",
+  "embedding_cache_root": "C:/Users/DELL/came_reproduction_cache/01a12085-0d33-7121-8ca9-6a18d16a84f4/embeddings",
+  "cache_policy": "Regenerable inference caches; preserve final checkpoints, logs, predictions, metrics and figures.",
+  "project_high_water_gib": 40,
+  "external_cache_high_water_gib": 30,
+  "reserve_free_gib": 3,
+  "ppr_cache_policy": "Share by topology and PPR parameters; do not duplicate by training seed, batch size or corpus name."
+}

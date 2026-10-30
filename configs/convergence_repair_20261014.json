@@ -1,0 +1,54 @@
+{
+  "stage": "bounded_convergence_repair",
+  "seed": 0,
+  "test_used_for_selection": false,
+  "minimum_validation_gain_pp": 0.5,
+  "preferred_gap_pp": 2,
+  "score_guaranteed": false,
+  "max_candidates_per_task": 1,
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "LP": {
+    "sports-copurchase": {
+      "head_variant": "two_hidden_layernorm_head_upstream_schedule",
+      "lr": 0.0005,
+      "batch_size": 512,
+      "max_epochs": 60,
+      "patience": 10,
+      "step_lr_size": null,
+      "step_lr_gamma": null,
+      "loss_reduction": "combined_mean",
+      "initialization": "fixed_seed0_fresh",
+      "evidence": "Previous validation-selected head schedule reduced LR by 10 every five epochs; fixed LR is a bounded optimization adaptation, not author-confirmed."
+    },
+    "cloth-copurchase": {
+      "head_variant": "existing_two_layer_head_upstream_schedule",
+      "lr": 0.001,
+      "batch_size": 4096,
+      "max_epochs": 300,
+      "patience": 10,
+      "step_lr_size": null,
+      "step_lr_gamma": null,
+      "loss_reduction": "separate_mean_sum",
+      "initialization": "audited_epoch100_optimizer_RNG_continuation",
+      "evidence": "Full validation curve still increasing at the declared 100-epoch cap; extend budget only, preserve optimizer, negatives, RNG and graph."
+    }
+  },
+  "WN": {
+    "optimizer": "LBFGS_strong_wolfe",
+    "lr": 0.05,
+    "max_iter": 1,
+    "history_size": 20,
+    "max_epochs": 500,
+    "patience": 100,
+    "l2": 0.0,
+    "feature_transform": "train_pair_affine",
+    "cache_selection": "maximum completed official validation accuracy among frozen prior graph/text candidates; no test",
+    "evidence": "Old fixed-step unregularized LBFGS stopped by validation patience with gradient norm 0.0447; stochastic Adam validation oscillated. Preserve linear concatenation/CE and test a single train-objective line-search solver.",
+    "engineering_adaptation_not_author_optimizer": true
+  },
+  "Books": {"action": "protocol_semantics_review_only_until_author_recipe_evidence", "do_not_lower_scores_to_match": true},
+  "resources": {"parallel_gpu_jobs": 1, "maximum_additional_cache_bytes": 0, "width": 1024, "cpu_compute_fallback": false, "priority_after_products_calibration": true},
+  "acceptance": ["actual Torch and DGL CUDA", "budget migration preserves model optimizer RNG and previous history", "CUDA solver finite descent", "train-derived affine fold preserves raw linear predictions", "full official validation gate then locked saved-weight full test once", "unique runs CSV JSONL TensorBoard PNG and parent SHA", "protected five results and raw datasets unchanged"],
+  "unresolved": ["CAME author LP head and optimizer are unreleased", "PPR tolerance/context hypothesis does not establish performance causation", "Books official MRR remains higher than the paper; do not invent negatives or change metric"],
+  "further_pretraining": "Not launched by this bounded plan. Requires a separate corpus/PPR/budget acceptance if validation evidence remains insufficient."
+}

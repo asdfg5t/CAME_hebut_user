@@ -1,0 +1,21 @@
+{
+  "dataset": "books-lp",
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "recipe": {
+    "lr": 0.0005,
+    "batch_size": 512,
+    "positive_budget_per_round": 512000,
+    "max_rounds": 4,
+    "patience": 10,
+    "scheduler_step": 5,
+    "scheduler_gamma": 0.1
+  },
+  "budget_decision": "User requested shortened training; fixed at4 before the new diagnostic test result, not selected by test or proximity to paper.",
+  "official_validation_queries": 570464,
+  "official_test_queries": 1710677,
+  "fixed_negatives": 150,
+  "cache_width": 1024,
+  "test_score_admission_gate": false,
+  "formal_paper_protocol_equivalence_claimed": false,
+  "seed0_reuse": "Four complete validation rounds from the preserved30-round run, validation-selected round2. The fifth round is unvalidated and excluded. Full official test is performed once by run22."
+}

@@ -1,0 +1,21 @@
+{
+  "stage": "user_run_validated_remaining_repeats",
+  "task": "FB15K237 relation classification only",
+  "seed0_confirmed_run": "runs/20261013T234858Z_kg_selected__9d0be5_s0_1378ca",
+  "seed0_selection_lock": "artifacts/remaining_main_pilots/kg_affine_screen/FB15K237_selection_lock.json",
+  "seed0_test_accuracy_pct": 93.48187237369295,
+  "paper_accuracy_pct": 94.59,
+  "seed0_gap_pp": -1.1081276263070525,
+  "preferred_absolute_gap_pp": 2,
+  "new_training_seeds": [1,2,3,4,5,6,7,8,9],
+  "reuse_seed0_without_training_or_retesting": true,
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "fixed_protocol": {"dataset": "FB15K237", "graph_policy": "train_reverse", "feature_transform": "raw", "edge_representation": "head_tail_concatenation", "head": "linear", "encoder_width": 1024, "pair_width": 2048, "lr": 0.05, "optimizer": "Adam reconstruction", "max_epochs": 2000, "patience": 100, "train_batch_size": 0, "selection": "official validation accuracy", "test": "full official pairs once using validation-selected saved classifier"},
+  "not_in_this_file": ["four already completed NC tasks", "WN18RR not within2pp", "Sports not within2pp", "Cloth not within2pp", "Books higher-than-paper protocol review", "Products not yet tested"],
+  "resources": {"parallel_gpu_jobs": 1, "maximum_new_cache_bytes": 0, "checkpoint_metadata_reservation_bytes": 268435456},
+  "scope": "ten downstream initialization seeds share one frozen pretraining checkpoint; not ten independent pretraining experiments",
+  "unknown_author_details": ["author exact optimizer/early-stopping and graph loader unreleased"],
+  "do_not_choose_seeds_or_drop_bad_scores": true,
+  "new_seed_score_guaranteed": false,
+  "full_training_started_by_agent": false
+}

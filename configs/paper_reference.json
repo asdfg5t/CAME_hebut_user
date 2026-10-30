@@ -1,0 +1,64 @@
+{
+  "status": "reference_only_not_executable_until_protocol_gaps_resolved",
+  "source": "User PDF, all 19 pages reread 2026-10-11; Appendix C/Table 4 page 14 and Appendix E/Table 6 page 16",
+  "pretraining_datasets": [
+    "ogbn-products",
+    "books-lp",
+    "cloth-copurchase"
+  ],
+  "model": {
+    "hidden_dim": 1024,
+    "layers": 2,
+    "dropout": 0.3,
+    "experts_per_view": 6,
+    "total_experts_author_argument": 18,
+    "top_k": 2,
+    "w_tv": 0.5,
+    "w_tf": 0.1,
+    "w_vf": 0.5
+  },
+  "pretraining": {
+    "epochs": 8,
+    "lr": 0.0001,
+    "ppr_top_k": 128,
+    "ppr_precomputed_offline": true,
+    "products_subset_pretraining": true,
+    "author_subset_size": null,
+    "all_nodes_per_epoch_required": false,
+    "evidence": "Appendix E page 16; does not specify Books/Cloth seed budget"
+  },
+  "linear_probe": {
+    "lr": 0.05,
+    "max_epochs": 2000,
+    "selection": "validation",
+    "seeds": 10,
+    "wiki_cs_official_splits": 20,
+    "wiki_cs_random_initializations": 20
+  },
+  "unresolved": [
+    "PPR alpha/epsilon and seed batching",
+    "dataset mixing, Products subset size/selection and other graph seed node budgets",
+    "LP head and training protocol",
+    "pretraining validation and early stopping"
+  ],
+  "few_shot_pretraining_datasets": [
+    "ogbn-products",
+    "books-nc",
+    "cloth-copurchase"
+  ],
+  "text_only_policy": "reuse CLIP text embedding as visual placeholder; paper section 5.2 page 6",
+  "clip_text_encoder_evidence": {
+    "repository": "openai/clip-vit-base-patch32",
+    "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+    "evidence": "artifacts/audit/clip_text_verification.json",
+    "text_block": "first 512D",
+    "independent_datasets": 5,
+    "samples_per_dataset": 64
+  },
+  "clip_image_encoder_evidence": {
+    "model": "openai/clip-vit-base-patch32",
+    "evidence": "artifacts/audit/clip_image_verification.json",
+    "preprocessing_books": "224x224 bicubic square; not default center crop",
+    "samples_per_dataset": 8
+  }
+}

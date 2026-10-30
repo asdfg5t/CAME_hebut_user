@@ -1,0 +1,17 @@
+{
+  "stage": "full_products_single_seed_diagnostic",
+  "seed": 0,
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "full_nodes": 2449029,
+  "width": 1024,
+  "inference": {"initial_batch_size": 16, "neighbors": "all inbound neighbors at both author GAT layers", "precision": "fp32", "oom_policy": "retry same unsaved target rows at half batch; refuse if one row cannot fit", "minimum_batch_size": 1, "CPU_compute_fallback": false, "prefix_checksum_on_resume": true},
+  "head": {"architecture": "linear", "lr": 0.05, "max_epochs": 2000, "patience": 100, "batch_size": 0, "selection": "official full validation accuracy", "optimizer": "Adam engineering reconstruction"},
+  "evaluation": {"all_official_test_nodes": true, "test_once_after_saved_weight_lock": true, "metric": "accuracy", "no_test_selection": true},
+  "capacity_acceptance": "artifacts/workflow_state/products_capacity_current.json",
+  "start_after": "bounded convergence controller completed and GPU lock released",
+  "resources": {"new_embedding_bytes": 10031222784, "external_cache_cap_gib": 30, "reserve_disk_gib": 3, "avoid_resident_output_matrix": "file writes with valid NPY header; full 1024-wide rows, no output precision reduction"},
+  "preferred_gap_pp": 2,
+  "score_guaranteed": false,
+  "protected": ["five passing tasks", "author originals", "all prior runs", "raw official files", "frozen encoder"],
+  "unresolved": ["calibration samples do not prove full-batch workload time", "author exact pretraining subset and optimizer remain unreleased"]
+}

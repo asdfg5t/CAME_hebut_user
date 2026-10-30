@@ -1,0 +1,53 @@
+{
+  "stage": "remaining_lp_single_seed",
+  "state": "validated_ready_for_single_seed_CUDA",
+  "created_at": "2026-10-14T07:29:59.6197764+08:00",
+  "module": "came_repro.remaining_lp_pilot",
+  "seed": 0,
+  "tasks": [
+    {
+      "dataset": "sports-copurchase",
+      "paper_mrr_pct": 37.68
+    },
+    {
+      "dataset": "cloth-copurchase",
+      "paper_mrr_pct": 28.88
+    },
+    {
+      "dataset": "books-lp",
+      "paper_mrr_pct": 10.42
+    }
+  ],
+  "training": {
+    "lr": 0.001,
+    "patience": 10,
+    "author_head_confirmed": false,
+    "negative_sampling": "one uniform train-only nonedge per positive",
+    "head": "Hadamard product 1024->1024 ReLU ->1",
+    "epochs": 100,
+    "batch_size": 4096
+  },
+  "evaluation": {
+    "selection": "official validation only",
+    "metric": "official MRR",
+    "all_official_candidates": true,
+    "report_reverse_nonoverlap_separately": true,
+    "test": "once after validation-selected best epoch",
+    "batch_size": 64
+  },
+  "engineering": {
+    "acceptance": "runtime exact row order/value and MRR/hits/reverse-subset comparison before official run",
+    "feature_cache": "all frozen FP32 node embeddings on CUDA",
+    "no_cpu_compute_fallback": true,
+    "reserve_scoring_gib": 1.5
+  },
+  "scope": "one complete downstream seed, not one epoch and not formal ten-seed repeats",
+  "start_after": "KG diagnostic GPU process fully exited",
+  "preferred_gap_pp": 2,
+  "score_guaranteed": false,
+  "cpu_adapter_tests_passed": 2,
+  "cuda_equivalence_verified": true,
+  "raw_or_four_results_modified": false,
+  "cuda_acceptance": "artifacts/audit/lp_cuda_row_cache_acceptance_20261014.json",
+  "official_data_acceptance": "artifacts/audit/remaining_lp_official_data_checked_20261014.json"
+}

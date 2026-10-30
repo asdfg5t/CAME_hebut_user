@@ -1,0 +1,11 @@
+{
+  "name": "pilot_ele_fashion_cuda",
+  "stage": "engineering_pilot",
+  "seed": 42,
+  "dataset": "ele-fashion",
+  "feature_layout": "text_first_assumed",
+  "model": {"hidden_dim": 1024, "heads": 4, "layers": 2, "dropout": 0.3, "experts_per_view": 6, "top_k": 2, "temperature": 0.07, "w_tv": 0.5, "w_tf": 0.1, "w_vf": 0.5},
+  "sampling": {"top_k": 128, "alpha": 0.15, "epsilon": 0.0001, "max_pushes": 100000, "seed_batch_size": 1, "seed_limit": 64, "direction": "official_directed"},
+  "training": {"epochs": 1, "max_steps": 32, "lr": 0.0001, "weight_decay": 0.0, "checkpoint_every": 16, "precision": "fp32"},
+  "deviations": ["Single Ele-fashion domain rather than joint pretraining.", "Limited steps and seeds; not a paper epoch.", "Feature order is an explicit unverified assumption pending raw encoder comparison.", "PPR alpha/epsilon, optimizer defaults, temperature and seed batch size are implementation choices not specified by the paper.", "Windows/Python 3.9.13/torch 2.1.2 cu118/DGL 1.1.2 differ from the paper server stack."]
+}

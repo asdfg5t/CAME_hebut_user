@@ -1,0 +1,50 @@
+{
+  "schema": "came_cloth_pairwise_validation_v1",
+  "date": "2026-10-17",
+  "seed": 0,
+  "only_task": "cloth-copurchase",
+  "candidate_count": 1,
+  "maximum_active_hours": 8,
+  "reference_validation_mrr": 0.3025347366384903,
+  "minimum_validation_gain_pp": 0.5,
+  "paper_test_mrr_pct": 28.88,
+  "score_guaranteed": false,
+  "formal_repeats": false,
+  "new_test_limit": 1,
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "reference_run": "runs/20261015T044740Z_cloth_head_s_878f21_s0_8f49d4",
+  "recipe": {
+    "head_variant": "two_hidden_layernorm_head_upstream_schedule",
+    "lr": 0.001,
+    "batch_size": 4096,
+    "max_epochs": 300,
+    "patience": 20,
+    "step_lr_size": null,
+    "step_lr_gamma": null,
+    "loss_reduction": "pairwise_softplus_mean"
+  },
+  "negative_pool_size": 4,
+  "negative_policy": "max_score_train_and_reverse_known_nonedge",
+  "only_optimization_change": "mean softplus(negative-positive) instead of pointwise BCE; patience20 explicitly declared",
+  "basis": "Train loss continues decreasing while full validation ranking plateaus; BPR optimizes relative positive-negative scores. This is a hypothesis, not a diagnosed cause.",
+  "primary_references": [
+    "https://proceedings.mlr.press/r7/rendle09a.html",
+    "https://proceedings.mlr.press/v306/he26at.html"
+  ],
+  "paper_unknowns": [
+    "CAME LP prediction head and exact loss not released; BPR is NOT author-confirmed",
+    "Historical tests were seen; this is validation-driven engineering, not pristine blind reproduction"
+  ],
+  "preserved": [
+    "original author files",
+    "six completed formal tasks and their backbone",
+    "all existing results",
+    "official full train/validation/test and150 fixed negative candidates",
+    "125839 nodes,1024 dimensions,train-only graph"
+  ],
+  "budget": {
+    "additional_project_bytes": 134217728,
+    "additional_cache_bytes": 536870912
+  },
+  "derived_trainer_sha256": "f7b302a18354f2e3d2809f3361c5151185c5f440e19c0006b0916b843e1fae1d"
+}

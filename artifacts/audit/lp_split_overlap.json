@@ -1,0 +1,32 @@
+{
+  "sports-copurchase": {
+    "valid": {
+      "ordered_train_overlap": 0,
+      "undirected_train_overlap": 8264
+    },
+    "test": {
+      "ordered_train_overlap": 0,
+      "undirected_train_overlap": 6621
+    }
+  },
+  "cloth-copurchase": {
+    "valid": {
+      "ordered_train_overlap": 0,
+      "undirected_train_overlap": 21043
+    },
+    "test": {
+      "ordered_train_overlap": 0,
+      "undirected_train_overlap": 17360
+    }
+  },
+  "books-lp": {
+    "valid": {
+      "ordered_train_overlap": 0,
+      "undirected_train_overlap": 36351
+    },
+    "test": {
+      "ordered_train_overlap": 0,
+      "undirected_train_overlap": 108818
+    }
+  }
+}

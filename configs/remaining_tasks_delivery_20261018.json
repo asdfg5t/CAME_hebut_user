@@ -1,0 +1,87 @@
+{
+  "schema": "came_remaining_main_delivery_v1",
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "tasks": [
+    "cloth",
+    "wn",
+    "books",
+    "products"
+  ],
+  "main_task_numbers": {
+    "wn": "06",
+    "cloth": "08",
+    "books": "09",
+    "products": "10"
+  },
+  "paper_pct": {
+    "wn": 81.97,
+    "cloth": 28.88,
+    "books": 10.42,
+    "products": 81.84
+  },
+  "candidates": {
+    "wn": [
+      {
+        "validation_run": "runs/20261018T015003Z_wn_unit_l2_c_353346_s0_203758",
+        "training_kind": "normalized_adam"
+      },
+      {
+        "ledger_record": "validate_wn",
+        "training_kind": "normalized_wolfe"
+      }
+    ],
+    "cloth": [
+      {
+        "validation_run": "runs/20261015T044740Z_cloth_head_s_878f21_s0_8f49d4",
+        "training_kind": "hard_four"
+      },
+      {
+        "validation_run": "runs/20261018T015347Z_cloth_dropou_5de5ff_s0_30ad42",
+        "training_kind": "dropout_bce"
+      },
+      {
+        "ledger_record": "validate_cloth",
+        "training_kind": "listwise"
+      }
+    ]
+  },
+  "books": {
+    "seed0_run": "runs/20261014T013045Z_lp_single_bo_cff256_s0_ad2b38",
+    "protocol_comparability_unresolved": true
+  },
+  "new_stage": "User requested formal remaining-task delivery. Freeze highest complete validation in declared candidate pool; never choose by test. Old diagnostic gates/results remain immutable and are not reclassified as successful.",
+  "capacity": {
+    "nodes": 2449029,
+    "width": 1024,
+    "official_test_nodes": 2213091,
+    "minimum_nodes_per_second": 30,
+    "maximum_private_fraction": 0.8,
+    "raw_data_reduction": false,
+    "index_manifest_sha256": "af272cbce077ac36410c3e162cb27c43b4b344e0b338c56d0232eaa6308a780c"
+  },
+  "formal_repeats_scope": "ten downstream initialization seeds share one existing joint-pretraining checkpoint, not ten independent pretraining runs",
+  "uncertainty": [
+    "CAME original LP head/loss and exact optimizer unreleased",
+    "Books paper negative/split comparability unresolved",
+    "Scores and ten-seed mean are not guaranteed within2pp",
+    "Products full-GPU acceptance and resource gate mandatory"
+  ],
+  "budget": {
+    "additional_project_bytes": 536870912,
+    "additional_cache_bytes": 1073741824
+  },
+  "no_original_file_changes": true,
+  "no_raw_or_result_deletions": true
+}

@@ -1,0 +1,69 @@
+{
+  "schema": "came_all_unresolved_v20261018",
+  "seed": 0,
+  "maximum_active_hours": 24,
+  "formal_repeats": false,
+  "protected_completed_task_results": 450,
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "validation_gain_threshold_pp": 0.5,
+  "maximum_new_tests_per_task": 1,
+  "cloth": {
+    "reference_validation": 0.3025347366384903,
+    "reference_run": "runs/20261015T044740Z_cloth_head_s_878f21_s0_8f49d4",
+    "recipe": {
+      "head_variant": "two_hidden_layernorm_head_upstream_schedule",
+      "lr": 0.001,
+      "batch_size": 4096,
+      "max_epochs": 300,
+      "patience": 20,
+      "step_lr_size": null,
+      "step_lr_gamma": null,
+      "loss_reduction": "separate_mean_sum",
+      "head_training_dropout": 0.3
+    },
+    "only_new_candidate": "BCE with training-only dropout; eval head exactly matches previous predictor"
+  },
+  "wn": {
+    "reference_validation": 0.7982860909690178,
+    "source_cache_suffix": "WN18RR_ofa_prefix_train_reverse",
+    "only_new_candidate": "unit-L2 normalize frozen node embeddings before existing train-pair affine linear CE probe",
+    "lr": 0.05,
+    "max_epochs": 2000,
+    "patience": 100
+  },
+  "products": {
+    "nodes": 2449029,
+    "width": 1024,
+    "official_test_nodes": 2213091,
+    "storage_only": "stable int32 inbound CSC with original parallel nonloops and one selfloop/node",
+    "numeric_rtol": 2e-05,
+    "numeric_atol": 2e-05,
+    "probe_batch_sizes": [
+      1,
+      4,
+      8,
+      16
+    ],
+    "prefix_comparison_ids": 16,
+    "long_sample_rows": 512,
+    "minimum_measured_nodes_per_second_for_full_start": 30,
+    "maximum_process_memory_fraction": 0.8,
+    "minimum_available_RAM_bytes": 1073741824
+  },
+  "books": {
+    "action": "official protocol and train/validation negative-difficulty audit; no new training/test or artificial score reduction",
+    "no_paper_equivalence_claim": true
+  },
+  "budget": {
+    "additional_project_bytes": 268435456,
+    "additional_cache_bytes": 1610612736
+  },
+  "offline": true,
+  "engineering_adaptations_not_author_confirmed": [
+    "Cloth training dropout",
+    "WN node normalization",
+    "Products structural storage change must be numerically equivalent"
+  ],
+  "historical_tests_seen": true,
+  "score_guaranteed": false
+}

@@ -1,0 +1,46 @@
+{
+  "name": "local_ele_fashion_cuda",
+  "stage": "engineering_pilot",
+  "seed": 42,
+  "dataset": "ele-fashion",
+  "feature_layout": "text_first_assumed",
+  "model": {
+    "hidden_dim": 1024,
+    "heads": 4,
+    "layers": 2,
+    "dropout": 0.3,
+    "experts_per_view": 6,
+    "top_k": 2,
+    "temperature": 0.07,
+    "w_tv": 0.5,
+    "w_tf": 0.1,
+    "w_vf": 0.5
+  },
+  "sampling": {
+    "top_k": 128,
+    "alpha": 0.15,
+    "epsilon": 0.0001,
+    "max_pushes": 100000,
+    "seed_batch_size": 8,
+    "seed_limit": 97766,
+    "direction": "official_directed"
+  },
+  "training": {
+    "epochs": 8,
+    "max_steps": null,
+    "lr": 0.0001,
+    "weight_decay": 0.0,
+    "checkpoint_every": 100,
+    "precision": "fp32",
+    "max_grad_norm": 1.0,
+    "gradient_abort_norm": 10000.0
+  },
+  "deviations": [
+    "Full single-domain Ele-fashion node schedule; not the paper's joint-pretraining protocol.",
+    "Feature order is explicitly assumed and not yet independently verified.",
+    "PPR alpha/epsilon, optimizer defaults, temperature and seed batch size are implementation assumptions.",
+    "Windows Python 3.9.13 / torch 2.1.2 cu118 / DGL 1.1.2 differ from the paper server stack.",
+    "No downstream test labels are used during pretraining. A CLI max-steps override makes this a limited-budget run.",
+    "Explicit max gradient norm=1.0 prevents huge zero-embedding normalization gradients; this is an engineering adaptation absent from the disclosed paper settings."
+  ]
+}

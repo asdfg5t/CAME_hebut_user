@@ -1,0 +1,28 @@
+{
+  "stage": "all_unmet_protocol_repair",
+  "state": "declared_before_candidate_training",
+  "seed": 0,
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "minimum_validation_gain_pp": 0.5,
+  "preferred_gap_pp": 2,
+  "test_used_for_selection": false,
+  "score_guaranteed": false,
+  "extra_pretraining_updates": 0,
+  "LP": {
+    "graph_policy": "upstream_train_bidirected_unique",
+    "max_candidates_per_task": 1,
+    "cloth_matched_initialization_validation_control": true,
+    "upstream_revision": "0769fa670c69a6dc0756a2d7fc697b980e494775",
+    "inference_batch_size": 32,
+    "evaluation_batch_size": 64,
+    "sports-copurchase": {"head_variant": "two_hidden_layernorm_head_upstream_schedule", "lr": 0.0005, "batch_size": 512, "max_epochs": 30, "patience": 10, "step_lr_size": 5, "step_lr_gamma": 0.1, "loss_reduction": "combined_mean"},
+    "cloth-copurchase": {"head_variant": "existing_two_layer_head_upstream_schedule", "lr": 0.001, "batch_size": 4096, "max_epochs": 100, "patience": 10, "step_lr_size": null, "step_lr_gamma": null, "loss_reduction": "separate_mean_sum"}
+  },
+  "WN": {"candidate": "exact_OFA_entity_prefix", "prefix": "feature node. entity and entity description: ", "graph_policy": "train_reverse", "clip_batch_size": 128, "max_length": 77, "head_recipe": "previous_validation_selected_Adam_train_pair_affine", "max_candidates": 1},
+  "Books": {"action": "publisher_history_split_negative_protocol_audit", "no_artificial_score_reduction": true, "no_dataset_replacement_without_evidence_and_identity_audit": true},
+  "Products": {"action": "full_neighbor_capacity_and_numeric_calibration_then_single_seed", "full_nodes": 2449029, "width": 1024, "official_test_unchanged": true},
+  "protected": ["four_NC_430_results", "FB15K237_confirmed_result", "all_author_files", "all_historical_runs", "all_raw_datasets", "existing_encoder"],
+  "resources": {"parallel_gpu_jobs": 1, "width": 1024, "additional_cache_reservation_bytes": 1500000000, "CPU_fallback": false},
+  "acceptance": ["upstream graph identity and exact train-only derivation", "official reverse overlaps reported separately", "actual Torch and DGL CUDA", "full-neighbor author-model numeric equivalence", "finite forward and backward", "recipe unchanged from validation-selected reference except declared graph or text", "configuration/source/data hashes frozen before run", "consistent checkpoints and RNG", "validation gate before locked-weight single full test", "independent official saved prediction or rank recomputation", "CSV JSONL TensorBoard and PNG verification"],
+  "self_review": {"evidence": "pinned official MMGraph graph preprocessing and OFA text generator; paper Appendix C/E", "unresolved": "CAME exact graph loader and KG text prefix are unreleased; publisher historical split comparability is not yet confirmed; original Cloth head RNG stream follows encoder construction", "decision": "Cloth uses a matched seed0 directed validation control to isolate graph changes; graph candidate must improve both historical reference and matched control. Weak candidates rejected, passing tasks preserved, high Books score investigated rather than manipulated"}
+}

@@ -1,0 +1,21 @@
+{
+  "stage": "two_lp_priority_validation",
+  "tasks": ["sports-copurchase", "cloth-copurchase"],
+  "candidate_profile": "configs/convergence_repair_20261014.json",
+  "reference_ledger": "artifacts/workflow_state/all_unmet_repair_current.json",
+  "seed": 0,
+  "minimum_validation_gain_pp": 0.5,
+  "preferred_absolute_paper_gap_pp": 2,
+  "paper_mrr_pct": {"sports-copurchase": 37.68, "cloth-copurchase": 28.88},
+  "training_limits": {"sports-copurchase": 60, "cloth-copurchase": 300},
+  "extra_pretraining_updates": 0,
+  "no_official_data_reduction": true,
+  "validation_only_selection": true,
+  "full_test_once_after_locked_saved_head": true,
+  "ready_requires_independent_full_official_test_verification": true,
+  "resources": {"GPU_jobs": 1, "additional_embedding_cache_bytes": 0, "checkpoint_metadata_reservation_bytes": 268435456},
+  "protected": ["four_NC_430", "FB_ten_seeds", "WN_saved_solver_checkpoint", "all_author_files", "raw_datasets", "historical_runs"],
+  "assumptions": ["CAME LP head/optimizer budget not released; convergence schedules are recorded engineering candidates", "matched seed0, frozen encoder and official graph/candidates remain fixed"],
+  "no_score_guarantee": true,
+  "formal_repeats_started_by_user_only": true
+}

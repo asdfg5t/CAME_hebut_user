@@ -1,0 +1,30 @@
+{
+  "name": "quality_pilot_one_additional_subset_round",
+  "max_active_hours": null,
+  "reference_pretraining_job": "pretrain_representation_came_seed42",
+  "datasets": ["wiki-cs", "ogbn-arxiv", "books-nc"],
+  "baseline_datasets": ["wiki-cs", "ogbn-arxiv", "books-nc"],
+  "graph_probe_datasets": ["wiki-cs", "ogbn-arxiv", "books-nc"],
+  "screen_seed": 0,
+  "wiki_split_id": 0,
+  "confirmation_seeds": [0],
+  "probe_epochs": 2000,
+  "probe_patience": 100,
+  "inference_batch_size": 32,
+  "books_bidirected_inference_batch_size": 8,
+  "validation_cache_mib": 400,
+  "extra_subset_rounds": 1,
+  "min_mean_validation_gain_pp": 0.5,
+  "max_domain_validation_regression_pp": 1.0,
+  "min_graph_validation_gain_pp": 0.5,
+  "owned_embedding_limit_gib": 3,
+  "run_remaining_first_seed_tasks": false,
+  "notes": [
+    "Existing completed CAME reference metrics are reused; three CLIP-text probes, three topology probes, one continuation round, three pilot validation probes, then one confirmation seed per changed NC domain. Ele-fashion is left untouched.",
+    "Additional training resumes the saved model, Adam, RNG and fixed-pool cursor. This is a disclosed nine-round engineering extension, not the paper's original eight epochs.",
+    "Wiki-CS bidirectionality follows the installed DGL loader; Goodreads-NC follows the MM-Graph GNN entry's bidirectionality. Exact CAME usage and the Arxiv candidate remain unconfirmed. No LP graph is changed.",
+    "Only validation selects graph policies and encoder. Paper test values are reporting targets and never gate configuration selection.",
+    "One confirmation seed and one Wiki-CS split are diagnostics, not the full paper grid. Remaining main tasks each run seed zero only. More seeds and ablations wait for quality review.",
+    "No 24-hour or other cumulative deadline; runtime is still logged. Seek stable validation improvements, without guaranteeing a test gap."
+  ]
+}

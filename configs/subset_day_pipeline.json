@@ -1,0 +1,16 @@
+{
+  "name": "subset_offline_quality_24h",
+  "total_wall_hours": 24,
+  "training_config": "configs/subset_offline_24h.json",
+  "main_wall_hours": 8,
+  "ablation_wall_hours": 4,
+  "probe_wall_minutes": 25,
+  "evaluation_seeds": [0, 1, 2],
+  "probe_max_epochs": 2000,
+  "probe_patience": 100,
+  "inference_batch_size": 32,
+  "ablation_variants": ["without_text_vision_loss", "without_dimension_gate"],
+  "primary_dataset": "ele-fashion",
+  "paper_reference_accuracy_percent": 85.13,
+  "scope": "One joint pretraining seed, three downstream initializations, Ele-fashion main/CLIP baselines/two conditional ablations. Not the complete paper experiment grid."
+}

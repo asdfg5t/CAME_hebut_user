@@ -1,0 +1,56 @@
+{
+  "name": "ablation_without_moe",
+  "stage": "paper_reconstruction_with_declared_assumptions",
+  "seed": 42,
+  "datasets": [
+    "ogbn-products",
+    "books-lp",
+    "cloth-copurchase"
+  ],
+  "model": {
+    "hidden_dim": 1024,
+    "heads": 4,
+    "layers": 2,
+    "dropout": 0.3,
+    "experts_per_view": 6,
+    "top_k": 2,
+    "temperature": 0.07,
+    "w_tv": 0.5,
+    "w_tf": 0.1,
+    "w_vf": 0.5
+  },
+  "sampling": {
+    "top_k": 128,
+    "alpha": 0.15,
+    "epsilon": 0.0001,
+    "max_pushes": 100000,
+    "seed_batch_size": 32,
+    "direction": "official_directed",
+    "seed_limits": {
+      "ogbn-products": null,
+      "books-lp": null,
+      "cloth-copurchase": null
+    }
+  },
+  "training": {
+    "epochs": 8,
+    "max_steps": null,
+    "lr": 0.0001,
+    "weight_decay": 0.0,
+    "checkpoint_every": 250,
+    "precision": "fp32",
+    "max_grad_norm": 1.0,
+    "gradient_abort_norm": 10000.0
+  },
+  "deviations": [
+    "Paper hidden width, experts, top-k routing, objective weights, epochs and corpus are retained.",
+    "PPR alpha/epsilon, mixing schedule and per-epoch seed budget are reconstructed assumptions; an epoch exhausts all node seeds in every corpus graph.",
+    "Round-robin graph batches until each graph is exhausted. No cross-dataset negatives are introduced.",
+    "CLIP text and image provenance must pass independent checks before data is loaded.",
+    "Attention dropout can create zero embeddings; explicit gradient clipping to 1.0 is a documented engineering adaptation.",
+    "Windows Python 3.9.13 / torch 2.1.2 cu118 / DGL 1.1.2 differ from the paper's server stack.",
+    "A CLI max-steps override is only a resource/restore validation; it is not a complete epoch.",
+    "Ablation follows paper section 5.5; undisclosed implementation details are reconstructed. Only-loss variants keep the surviving main-profile weight."
+  ],
+  "variant": "without_moe"
+}

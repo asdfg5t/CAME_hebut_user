@@ -1,0 +1,24 @@
+{
+  "schema": "came_cloth_wn_bounded_offline_v1",
+  "pretraining": "resume_existing_pool2x_candidate_to_20480_updates",
+  "seed": 0,
+  "maximum_active_hours": 18,
+  "selection": "complete_all_three_validation_candidates_then_max_validation_first_tie",
+  "minimum_validation_gain_pp": 0.5,
+  "reference_validation": {"cloth": 0.3025347366384903, "wn": 0.7982860909690178},
+  "paper_test_pct": {"cloth": 28.88, "wn": 81.97},
+  "cloth_candidates": [
+    {"id": "cloth_lr001", "lr": 0.001, "max_epochs": 300, "patience": 10},
+    {"id": "cloth_lr0005", "lr": 0.0005, "max_epochs": 300, "patience": 20},
+    {"id": "cloth_lr0003", "lr": 0.0003, "max_epochs": 300, "patience": 20}
+  ],
+  "wn_candidates": [
+    {"id": "wn_lr005", "lr": 0.05, "max_epochs": 2000, "patience": 100},
+    {"id": "wn_lr001", "lr": 0.01, "max_epochs": 2000, "patience": 100},
+    {"id": "wn_lr0005", "lr": 0.005, "max_epochs": 2000, "patience": 100}
+  ],
+  "offline": true,
+  "formal_repeats": false,
+  "maximum_new_test_evaluations_per_task": 1,
+  "engineering_adaptation": "Finite validation-only optimization grid declared before any new backbone downstream scores; exact author optimization settings remain unknown. Historical tests were seen during previous development."
+}

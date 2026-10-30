@@ -1,0 +1,85 @@
+{
+  "objective": "User-priority bounded Cloth and WN diagnostics before formal repeats",
+  "encoder_sha256": "1fd5a614766cf52fe15cc9e0a9f577fbfdc07cd70de7bd6cc7a02834a1cde91e",
+  "candidate_order": [
+    "wn",
+    "cloth"
+  ],
+  "new_candidates_per_task": 1,
+  "seed": 0,
+  "test_used_for_selection": false,
+  "minimum_validation_gain_pp": 0.5,
+  "absolute_paper_gap_target_pp": 2,
+  "score_guaranteed": false,
+  "cloth": {
+    "reference_run": "runs\\20261015T044740Z_cloth_head_s_878f21_s0_8f49d4",
+    "reference_summary_sha256": "4ec25405d44f092d7a38410dd26925df27853b909549816e6760f014e1a510b7",
+    "reference_validation": 0.30187407805763206,
+    "initial_best_head_sha256": "d8c8d46db18c78c836d29636e57794f88aeac9d31c3dda4a5d207b10dfdcdbca",
+    "recipe": {
+      "head_variant": "two_hidden_layernorm_head_upstream_schedule",
+      "lr": 0.0001,
+      "batch_size": 4096,
+      "max_epochs": 80,
+      "patience": 20,
+      "loss_reduction": "separate_mean_sum"
+    },
+    "change": "New refinement phase, validation-selected best head initialization; new Adam at one-tenth LR. Explicit new optimizer, not identical resume.",
+    "full_nodes": 125839,
+    "full_validation_queries": 121323,
+    "full_test_queries": 97456,
+    "fixed_test_negatives": 150,
+    "negative_pool_size": 4
+  },
+  "wn": {
+    "reference_run": "runs\\20261014T045920Z_kg_affine_WN_fce445_s0_cb5aeb",
+    "reference_summary_sha256": "1a7dad287d75daac3c83122d79045e1e99c11f69e1018fcd5d0ef52fe7065b6a",
+    "reference_validation": 0.7982860909690178,
+    "recipe": {
+      "classes": 11,
+      "lr": 0.05,
+      "max_epochs": 2000,
+      "patience": 100,
+      "lr_patience": 20,
+      "min_lr": 5e-05
+    },
+    "change": "Fresh fixed seed0 linear classifier; initial paper lr=.05, train CE, validation-loss ReduceLROnPlateau factor=.1. No nonlinear classifier or feature change.",
+    "full_nodes": 40943,
+    "pair_width": 2048,
+    "full_test_queries": 3134
+  },
+  "evidence": "artifacts/audit/priority_cloth_wn_train_validation_evidence_20261016.json",
+  "paper_evidence": "Appendix C: frozen encoder, head/tail concatenation linear KG classifier, CE, validation-selected early stopping; original LP head unpublished",
+  "engineering_adaptations": [
+    "Cloth warm-start refinement and lower LR",
+    "WN validation-loss LR scheduler",
+    "Patience choices are reconstructed"
+  ],
+  "unknowns": [
+    "Author optimizer/scheduler/LP head not confirmed",
+    "Frozen representation quality may cap transfer; optimizer changes may fail"
+  ],
+  "resources": {
+    "one_GPU_serial": true,
+    "additional_embedding_bytes": 0,
+    "checkpoint_metadata_reservation_bytes": 536870912,
+    "CPU_neural_fallback": false
+  },
+  "acceptance": [
+    "Actual torch AND DGL CUDA",
+    "Both tasks seed1 optimizer/scheduler/RNG/history resume equivalence",
+    "Full official validation gain>=0.5pp; reject otherwise without new test",
+    "SHA-locked saved head full official test once",
+    "Independent complete predictions/ranks, CSV/JSONL/TensorBoard/checkpoint/parent hashes, visual PNG review"
+  ],
+  "protection": [
+    "All six completed formal repeated tasks",
+    "Author originals",
+    "Raw data",
+    "Existing models/runs",
+    "Products prefix cursor"
+  ],
+  "Products_action": "Inactive after external interruption; preserve verified prefix and prevent old auto-resume until priority pair is complete/audited",
+  "formal_repeats_started_by_assistant": 0,
+  "periodic_automation": false
+}
